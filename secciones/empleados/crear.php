@@ -98,7 +98,7 @@ $lista_cargo = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         </select>
     </div>
 </div>
-<button type="submit" class="btn btn-success">Agregar</button>
+<button type="submit" class="btn btn-success" href="index.php">Agregar</button>
 <a name="" id="" class="btn btn-danger" href="index.php" role="button">Cancelar</a>
 
 </form>

@@ -1,5 +1,3 @@
-
-
 <?php 
 include("../../bd.php");
 
@@ -38,12 +36,12 @@ $lista_empleados=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 <h2> Empleados</h2>
 <div class="card">
     <div class="card-header">
-   
-    <a name="" id="" class="btn btn-primary" href="crear.php" role="button">agregar registro</a>
+
+        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">agregar registro</a>
     </div>
     <div class="card-body">
         <div class="table-responsive-sm">
-            <table class="table table-primary" id="tabla_id">
+            <table class="table" id="tabla_id">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -54,39 +52,41 @@ $lista_empleados=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                         <th scope="col"> IMAGEN</th>
                         <th scope="col">CARGO</th>
                         <th scope="col"> ACCIONES</th>
-                        
+
 
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($lista_empleados as $registro) {  ?>
+                    <?php foreach ($lista_empleados as $registro) {  ?>
                     <tr class="">
-                    <
-                        <td scope="row"><?php echo $registro['id'];?></td>
-                        <td><?php echo $registro['nombre'];?></td>
-                        <td><?php echo $registro['Direccion'];?></td>
-                        <td><?php echo $registro['Correo'];?></td>
-                        <td><?php echo $registro['Telefono'];?></td>
-                        <td><img width="50" src="<?php echo $registro['Imagen'];?>" class="img-fluid rounded-top" alt=""></td>
-                        <td><?php echo $registro['cargo'];?></td>
-                        
-                        <td>
-                        <a class="btn btn-info" href="editar.php?txtID=<?php echo $registro['id'];?>" role="button">Editar</a>
-                    
-                    <a class="btn btn-danger" href="index.php?txtID=<?php echo $registro['id'];?>" role="button">Eliminar</a>
-                    </td>
-                        
-                        
+                        < <td scope="row"><?php echo $registro['id'];?></td>
+                            <td><?php echo $registro['nombre'];?></td>
+                            <td><?php echo $registro['Direccion'];?></td>
+                            <td><?php echo $registro['Correo'];?></td>
+                            <td><?php echo $registro['Telefono'];?></td>
+                            <td><img width="50" src="<?php echo $registro['Imagen'];?>" class="img-fluid rounded-top"
+                                    alt=""></td>
+                            <td><?php echo $registro['cargo'];?></td>
+
+                            <td>
+                                <a class="btn btn-info" href="editar.php?txtID=<?php echo $registro['id'];?>"
+                                    role="button">Editar</a>
+
+                                <a class="btn btn-danger" href="index.php?txtID=<?php echo $registro['id'];?>"
+                                    role="button">Eliminar</a>
+                            </td>
+
+
                     </tr>
                     <?php } ?>
                 </tbody>
             </table>
         </div>
-       
+
     </div>
     <div class="card-footer text-muted">
-        
+
     </div>
 </div>
-<br/>
+<br />
 <?php include("../../templates/footer.php");?>

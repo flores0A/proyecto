@@ -68,10 +68,7 @@ if (isset($registro_recuperado["Imagen"])&& $registro_recuperado["Imagen"]!="") 
         $sentencia->bindParam(":Imagen", $nombreArchivo_Imagen);
         $sentencia->bindParam(":id", $txtID);
         $sentencia->execute();
-    }
-    
-
-
+}
 
 }
 
@@ -80,75 +77,71 @@ if (isset($registro_recuperado["Imagen"])&& $registro_recuperado["Imagen"]!="") 
 ?>
 
 <?php include("../../templates/header.php");?>
-<br/>
+<br />
 <div class="card">
     <div class="card-header">
         datos de empleado
     </div>
     <div class="card-body">
-        
-<form action="" method="post" enctype="multipart/form-data">
-<div class="mb-3">
-  <label for="txtID" class="form-label">ID:</label>
-  <input type="text"
-  value="<?php echo $txtID?>"
-    class="form-control" readonly name="txtID" id="txtID" aria-describedby="helpId" placeholder="ID">
-</div>
-<div class="mb-3">
-  <label for="nombre" class="form-label">nombre</label>
-  <input type="text"
-  value="<?php echo $nombre?>"
-    class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="nombre">
-</div>
 
-<div class="mb-3">
-  <label for="Direccion" class="form-label">Direccion</label>
-  <input type="text"
-  value="<?php echo $Direccion?>"
-    class="form-control" name="Direccion" id="Direccion" aria-describedby="helpId" placeholder="Direccion">
-</div>
-<div class="mb-3">
-  <label for="Correo" class="form-label">Correo Electronico</label>
-  <input type="text"
-  value="<?php echo $Correo?>"
-    class="form-control" name="Correo" id="Correo" aria-describedby="helpId" placeholder="Correo">
-</div>
-<div class="mb-3">
-  <label for="Telefono" class="form-label">Telefono</label>
-  <input type="number"
-  value="<?php echo $Telefono?>"
-    class="form-control" name="Telefono" id="Telefono" aria-describedby="helpId" placeholder="Telefono">
-</div>
-<div class="mb-3">
-  <label for="Imagen" class="form-label">Imagen</label>
-  <br/>
-  <img width="100" src="<?php echo $Imagen?>" class=" rounded-top" alt="">
-  <br/>
-  <br/>
-  <input type="file"
-    class="form-control" name="Imagen" id="Imagen" aria-describedby="helpId" placeholder="Imagen">
-</div>
-<div>
-    <div class="mb-3">
-        <label for="idPuesto" class="form-label">Puesto:</label>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="txtID" class="form-label">ID:</label>
+                <input type="text" value="<?php echo $txtID?>" class="form-control" readonly name="txtID" id="txtID"
+                    aria-describedby="helpId" placeholder="ID">
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">nombre</label>
+                <input type="text" value="<?php echo $nombre?>" class="form-control" name="nombre" id="nombre"
+                    aria-describedby="helpId" placeholder="nombre">
+            </div>
 
-        <select class="form-select form-select-lg" name="idPuesto" id="idPuesto">
-        <?php foreach ($lista_cargo as $registro) {  ?>
+            <div class="mb-3">
+                <label for="Direccion" class="form-label">Direccion</label>
+                <input type="text" value="<?php echo $Direccion?>" class="form-control" name="Direccion" id="Direccion"
+                    aria-describedby="helpId" placeholder="Direccion">
+            </div>
+            <div class="mb-3">
+                <label for="Correo" class="form-label">Correo Electronico</label>
+                <input type="text" value="<?php echo $Correo?>" class="form-control" name="Correo" id="Correo"
+                    aria-describedby="helpId" placeholder="Correo">
+            </div>
+            <div class="mb-3">
+                <label for="Telefono" class="form-label">Telefono</label>
+                <input type="number" value="<?php echo $Telefono?>" class="form-control" name="Telefono" id="Telefono"
+                    aria-describedby="helpId" placeholder="Telefono">
+            </div>
+            <div class="mb-3">
+                <label for="Imagen" class="form-label">Imagen</label>
+                <br />
+                <img width="100" src="<?php echo $Imagen?>" class=" rounded-top" alt="">
+                <br />
+                <br />
+                <input type="file" class="form-control" name="Imagen" id="Imagen" aria-describedby="helpId"
+                    placeholder="Imagen">
+            </div>
+            <div>
+                <div class="mb-3">
+                    <label for="idPuesto" class="form-label">Puesto:</label>
 
-            <option <?php echo ($idPuesto == $registro['id']) ? "selected" : ""; ?> value="<?php echo $registro['id']; ?>">
-    <?php echo $registro['cargo']; ?>
-            <?php } ?>
-        </select>
-    </div>
-</div>
-<button type="submit" class="btn btn-success">Actualizar</button>
-<a name="" id="" class="btn btn-warning" href="index.php" role="button">Cancelar</a>
+                    <select class="form-select form-select-lg" name="idPuesto" id="idPuesto">
+                        <?php foreach ($lista_cargo as $registro) {  ?>
 
-</form>
+                        <option <?php echo ($idPuesto == $registro['id']) ? "selected" : ""; ?>
+                            value="<?php echo $registro['id']; ?>">
+                            <?php echo $registro['cargo']; ?>
+                            <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" >Actualizar</button>
+            <a name="" id="" class="btn btn-warning" href="index.php" role="button">Cancelar</a>
+
+        </form>
 
     </div>
     <div class="card-footer text-muted">
     </div>
 </div>
-<br/>
+<br />
 <?php include("../../templates/footer.php");?>

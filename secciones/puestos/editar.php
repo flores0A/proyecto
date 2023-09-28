@@ -49,7 +49,7 @@ if ($_POST) {
   value="<?php echo $cargo?>"
     class="form-control"  name="cargo" id="cargo" aria-describedby="helpId" placeholder="cargo">
 </div>
-<button type="submit" class="btn btn-success">Actualizar</button>
+<button type="submit" class="btn btn-success" >Actualizar</button>
 <a name="" id="" class="btn btn-warning" href="index.php" role="button">Cancelar</a>
        </form>
     </div>

@@ -28,7 +28,7 @@ $lista_cargo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="card-body">
     <div class="table-responsive">
-    <table class="table">
+    <table class="table" id="tabla_id">
         <thead>
             <tr>
                 <th scope="col">id</th>
@@ -56,7 +56,7 @@ $lista_cargo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 </div>
     </div>
     <div class="card-footer text-muted">
-        Footer
+       
     </div>
 </div>
 
