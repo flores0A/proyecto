@@ -36,14 +36,9 @@ if ($_POST) {
     $sentencia->bindParam(":Imagen", $Imagen);
     $sentencia->bindParam(":idPuesto", $idPuesto);
 
-    if ($sentencia->execute()) {
-        // Redirigir a la página principal después de la inserción exitosa
-        header("Location: index.php");
-        exit;
-    } else {
-        // Mostrar un mensaje de error en caso de fallo en la inserción
-        echo "Error al insertar en la base de datos.";
-    }
+    $sentencia->execute();
+    $mensaje="Registro Agregado";
+    header("Location:index.php?mensaje=".$mensaje);
 }
 
 // Obtener la lista de cargos (esto puede ir fuera del bloque if ($_POST))
@@ -57,13 +52,13 @@ $lista_cargo = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 <br/>
 <div class="card">
     <div class="card-header">
-        datos de empleado
+    Agregar Empleados
     </div>
     <div class="card-body">
         
 <form action="" method="post" enctype="multipart/form-data">
 <div class="mb-3">
-  <label for="nombre" class="form-label">nombre</label>
+  <label for="nombre" class="form-label">Nombre</label>
   <input type="text"
     class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="nombre">
 </div>

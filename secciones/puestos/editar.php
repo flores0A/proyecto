@@ -20,42 +20,50 @@ if ($_POST) {
     //asignamos valores
     $sentencia->bindParam(":cargo",$cargo);
     $sentencia->bindParam(":id", $txtID);
-        $sentencia->execute();
-        header("Location:index.php");
+    $sentencia->execute();
+    $mensaje="Registro Actualizado";
+    header("Location:index.php?mensaje=".$mensaje);
    
     }
 
 ?>
 
 <?php include("../../templates/header.php");?>
-<br/>
+<?php if (isset($_GET['mensaje'])) {?>
+<script>
+Swal.fire({
+    title: '<?php echo $_GET ['mensaje'];?>',
+    icon: 'sucess',
+
+});
+</script>
+<?php }?>
+<br />
 <div class="card">
     <div class="card-header">
         Cargo
     </div>
-    <div class="card-body"> 
-       <form action="" method="post" enctype="multipart/form-data">
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data">
 
-<div class="mb-3">
-  <label for="txtID" class="form-label">ID:</label>
-  <input type="text"
-  value="<?php echo $txtID?>"
-    class="form-control" readonly name="txtID" id="txtID" aria-describedby="helpId" placeholder="ID">
-</div>
+            <div class="mb-3">
+                <label for="txtID" class="form-label">ID:</label>
+                <input type="text" value="<?php echo $txtID?>" class="form-control" readonly name="txtID" id="txtID"
+                    aria-describedby="helpId" placeholder="ID">
+            </div>
 
-<div class="mb-3">
-  <label for="cargo" class="form-label">Nombre del cargo</label>
-  <input type="text"
-  value="<?php echo $cargo?>"
-    class="form-control"  name="cargo" id="cargo" aria-describedby="helpId" placeholder="cargo">
-</div>
-<button type="submit" class="btn btn-success" >Actualizar</button>
-<a name="" id="" class="btn btn-warning" href="index.php" role="button">Cancelar</a>
-       </form>
+            <div class="mb-3">
+                <label for="cargo" class="form-label">Nombre del cargo</label>
+                <input type="text" value="<?php echo $cargo?>" class="form-control" name="cargo" id="cargo"
+                    aria-describedby="helpId" placeholder="cargo">
+            </div>
+            <button type="submit" class="btn btn-success">Actualizar</button>
+            <a name="" id="" class="btn btn-warning" href="index.php" role="button">Cancelar</a>
+        </form>
     </div>
     <div class="card-footer text-muted">
-        
+
     </div>
 </div>
-<br/>
+<br />
 <?php include("../../templates/footer.php");?>

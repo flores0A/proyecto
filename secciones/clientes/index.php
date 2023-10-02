@@ -18,11 +18,11 @@ $lista_clientes=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
 <?php include("../../templates/header.php");?>
 <br />
-<h2> Clientes</h2>
+<div class="text-center"> <h2 > Clientes</h2> </div>
 <div class="card">
     <div class="card-header">
 
-        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">agregar registro</a>
+        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">agregar Clientes</a>
     </div>
     <div class="card-body">
         <div class="table-responsive-sm">
@@ -53,7 +53,7 @@ $lista_clientes=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                             <a class="btn btn-info" href="editar.php?txtID=<?php echo $registro['IDCliente'];?>"
                                 role="button">Editar</a>
 
-                            <a class="btn btn-danger" href="index.php?txtID=<?php echo $registro['IDCliente'];?>"
+                            <a class="btn btn-danger" href="javascript:borrar(<?php echo $registro['IDCliente'];?>);"
                                 role="button">Eliminar</a>
                         </td>
 

@@ -42,8 +42,6 @@ if ($_POST) {
     $sentencia->bindParam(":Telefono", $Telefono);
     $sentencia->bindParam(":idPuesto", $idPuesto);
 
-    $sentencia->execute();
-
     $Imagen = (isset($_FILES["Imagen"]['name']) ? $_FILES["Imagen"]['name'] : "");
 
     $fecha_Imagen = new DateTime();
@@ -68,7 +66,11 @@ if (isset($registro_recuperado["Imagen"])&& $registro_recuperado["Imagen"]!="") 
         $sentencia->bindParam(":Imagen", $nombreArchivo_Imagen);
         $sentencia->bindParam(":id", $txtID);
         $sentencia->execute();
+    
 }
+
+        $mensaje="Registro Actualizado";
+        header("Location:index.php?mensaje=".$mensaje);
 
 }
 
@@ -91,7 +93,7 @@ if (isset($registro_recuperado["Imagen"])&& $registro_recuperado["Imagen"]!="") 
                     aria-describedby="helpId" placeholder="ID">
             </div>
             <div class="mb-3">
-                <label for="nombre" class="form-label">nombre</label>
+                <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" value="<?php echo $nombre?>" class="form-control" name="nombre" id="nombre"
                     aria-describedby="helpId" placeholder="nombre">
             </div>
@@ -134,7 +136,7 @@ if (isset($registro_recuperado["Imagen"])&& $registro_recuperado["Imagen"]!="") 
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success" >Actualizar</button>
+            <button type="submit" class="btn btn-success">Actualizar</button>
             <a name="" id="" class="btn btn-warning" href="index.php" role="button">Cancelar</a>
 
         </form>

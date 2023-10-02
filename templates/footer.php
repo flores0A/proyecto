@@ -26,6 +26,26 @@ $(document).ready(function() {
 });
 </script>
 
+<script>
+function borrar(id) {
+    // Muestra una alerta de confirmación antes de eliminar el registro
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'No podrás revertir esto',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma, redirige a la página de eliminación con el ID del registro
+            window.location.href = 'index.php?txtID=' + id;
+        }
+    });
+}
+</script>
+
 </body>
 
 </html>

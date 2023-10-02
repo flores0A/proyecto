@@ -41,43 +41,50 @@ if ($_POST) {
 
 <body>
     <header>
-        <!-- place navbar here -->
+
     </header>
-    <main class="container">
+    <main class="container " >
         <div class="row">
             <div class="col-md-4">
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 ">
                 <br /> <br />
                 <div class="card">
-                    <div class="card-header">
-                        login
+                    <div class=" text-center card-header  ">
+                        <h1>Login</h1>
                     </div>
-                    <div class="card-body">
-                        <?php if (isset($mensaje)) { ?>
-                        <div class="alert alert-danger" role="alert">
-                            <strong><?php echo $mensaje; ?></strong>
+                    <img class="img-fluid mx-auto d-block rounded w-40 h-40" src="imag/login.png" alt="">
+
+
+                        <div class="card-body">
+                            <?php if (isset($mensaje)) { ?>
+                            <div class="alert alert-danger" role="alert">
+                                <strong><?php echo $mensaje; ?></strong>
+                            </div>
+                            <?php } ?>
+
+                            <form action="" method="post">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Usuario</label>
+                                    <input type="text" class="form-control" name="usuario" id="usuario"
+                                        aria-describedby="helpId" placeholder=" usuario">
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Password</label>
+                                    <input type="text" class="form-control" name="password" 
+                                    id="password"
+                                        aria-describedby="helpId" placeholder=" password">
+
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary mx-auto">Ingresar</button>
+                                </div>
+
+                            </form>
                         </div>
-                        <?php } ?>
-
-                        <form action="" method="post">
-                            <div class="mb-3">
-                                <label for="" class="form-label">Usuario</label>
-                                <input type="text" class="form-control" name="usuario" id="usuario"
-                                    aria-describedby="helpId" placeholder=" usuario">
-
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Password</label>
-                                <input type="text" class="form-control" name="password" id="password"
-                                    aria-describedby="helpId" placeholder=" password">
-
-                            </div>
-                            <button type="submit" class="btn btn-primary">Ingresar</button>
-                        </form>
-                    </div>
-
                 </div>
             </div>
         </div>

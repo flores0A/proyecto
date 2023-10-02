@@ -1,5 +1,9 @@
 <?php
+session_start();
 $url_base="http://localhost/proyecto/";
+if (!isset($_SESSION['usuario'])) {
+  header("Location:".$url_base."login.php");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,9 +20,16 @@ $url_base="http://localhost/proyecto/";
 
     <script src="https://code.jquery.com/jquery-3.6.2.min.js"
         integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+        
+    </script>
 
 </head>
 
@@ -54,8 +65,19 @@ $url_base="http://localhost/proyecto/";
                 <a class="nav-link" href="<?php echo $url_base; ?>secciones/ventas/">Ventas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo $url_base; ?>secciones/empleados/">cerrar session</a>
+                <a class="nav-link" href="<?php echo $url_base; ?>cerrar.php">cerrar session</a>
             </li>
         </ul>
     </nav>
     <main class="container">
+
+    
+<?php if (isset($_GET['mensaje'])) {?>
+<script>
+Swal.fire({
+    title: '<?php echo $_GET ['mensaje'];?>',
+    icon: 'sucess',
+
+});
+</script>
+<?php }?>

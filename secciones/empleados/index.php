@@ -19,7 +19,8 @@ if (isset($registro_recuperado["Imagen"])&& $registro_recuperado["Imagen"]!="") 
   $sentencia=$conexion->prepare("DELETE FROM empleados WHERE id=:id");
     $sentencia->bindParam(":id",$txtID);
 $sentencia->execute();
-header("Location:index.php");
+$mensaje="Registro Eliminado";
+header("Location:index.php?mensaje=".$mensaje);
 }
 
 
@@ -33,11 +34,12 @@ $lista_empleados=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
 <?php include("../../templates/header.php");?>
 <br />
-<h2> Empleados</h2>
+<div class="text-center"> <h2 > Empleados</h2> </div>
+
 <div class="card">
     <div class="card-header">
 
-        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">agregar registro</a>
+        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">agregar Empleados</a>
     </div>
     <div class="card-body">
         <div class="table-responsive-sm">
@@ -72,7 +74,7 @@ $lista_empleados=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                                 <a class="btn btn-info" href="editar.php?txtID=<?php echo $registro['id'];?>"
                                     role="button">Editar</a>
 
-                                <a class="btn btn-danger" href="index.php?txtID=<?php echo $registro['id'];?>"
+                                <a class="btn btn-danger" href="javascript:borrar(<?php echo $registro['id'];?>);"
                                     role="button">Eliminar</a>
                             </td>
 

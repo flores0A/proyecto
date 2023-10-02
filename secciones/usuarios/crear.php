@@ -12,7 +12,8 @@ $sentencia->bindParam(":usuario",$usuario);
 $sentencia->bindParam(":password",$password);
 $sentencia->bindParam(":correo",$correo);
 $sentencia->execute();
-header("Location:index.php");
+$mensaje="Registro Agregado";
+header("Location:index.php?mensaje=".$mensaje);
 }
 ?>
 
@@ -20,7 +21,7 @@ header("Location:index.php");
 <br/>
 <div class="card">
     <div class="card-header">
-       Datos del  Usuario
+    Agregar  Usuario
     </div>
     <div class="card-body">
        <form action="" method="post" enctype="multipart/form-data">

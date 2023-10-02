@@ -5,8 +5,9 @@ if (isset($_GET['txtID'])) {
     $txtID=(isset($_GET['txtID']))? $_GET['txtID']:"";
     $sentencia=$conexion->prepare("DELETE FROM proveedores WHERE ID_Proveedor=:ID_Proveedor");
     $sentencia->bindParam(":ID_Proveedor",$txtID);
-$sentencia->execute();
-header("Location:index.php");
+    $sentencia->execute();
+    $mensaje="Registro Eliminado";
+    header("Location:index.php?mensaje=".$mensaje);
 }
 
 $sentencia=$conexion->prepare("SELECT * FROM `proveedores`");
@@ -18,11 +19,12 @@ $lista_proveedores=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
 <?php include("../../templates/header.php");?>
 <br />
-<h2> Proveedores</h2>
+<div class="text-center"> <h2 > Proveedores</h2> </div>
+
 <div class="card">
     <div class="card-header">
 
-        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">agregar registro</a>
+        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">agregar Proveedores</a>
     </div>
     <div class="card-body">
         <div class="table-responsive-sm">
@@ -51,7 +53,7 @@ $lista_proveedores=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                             <a class="btn btn-info" href="editar.php?txtID=<?php echo $registro['ID_Proveedor'];?>"
                                 role="button">Editar</a>
 
-                            <a class="btn btn-danger" href="index.php?txtID=<?php echo $registro['ID_Proveedor'];?>"
+                            <a class="btn btn-danger" href="javascript:borrar(<?php echo $registro['ID_Proveedor'];?>);"
                                 role="button">Eliminar</a>
                         </td>
 
